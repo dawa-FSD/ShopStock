@@ -1,24 +1,25 @@
-import { useState } from "react";
-import productsData from "../data/products";
-
-export default function Inventory() {
-  const [products, setProducts] = useState(productsData);
-
+export default function Inventory({ products, setProducts }) {
   function increaseStock(id) {
-    setProducts(
-      products.map((product) =>
+    setProducts((currentProducts) =>
+      currentProducts.map((product) =>
         product.id === id
-          ? { ...product, quantity: product.quantity + 1 }
+          ? {
+              ...product,
+              quantity: product.quantity + 1,
+            }
           : product,
       ),
     );
   }
 
   function decreaseStock(id) {
-    setProducts(
-      products.map((product) =>
+    setProducts((currentProducts) =>
+      currentProducts.map((product) =>
         product.id === id && product.quantity > 0
-          ? { ...product, quantity: product.quantity - 1 }
+          ? {
+              ...product,
+              quantity: product.quantity - 1,
+            }
           : product,
       ),
     );

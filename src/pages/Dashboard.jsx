@@ -1,6 +1,4 @@
-import products from "../data/products";
-
-export default function Dashboard() {
+export default function Dashboard({ products }) {
   const totalProducts = products.length;
 
   const totalStock = products.reduce(
@@ -33,11 +31,14 @@ export default function Dashboard() {
 
       <h2>Recent Products</h2>
 
-      {products.slice(0, 3).map((product) => (
-        <p key={product.id}>
-          {product.name} — {product.quantity} in stock
-        </p>
-      ))}
+      {products
+        .slice(-3)
+        .reverse()
+        .map((product) => (
+          <p key={product.id}>
+            {product.name} — {product.quantity} in stock
+          </p>
+        ))}
     </div>
   );
 }

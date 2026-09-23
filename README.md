@@ -1,16 +1,108 @@
-# React + Vite
+# ShopStock — Inventory Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ShopStock is a React-based inventory management system designed for small shops and businesses.
 
-Currently, two official plugins are available:
+It helps shop owners and store managers manage products, monitor stock quantities, identify low-stock products, and add new products easily.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Project Overview
 
-## React Compiler
+Managing products manually using notebooks or spreadsheets can make it difficult to know current stock quantities, product information, and low-stock items.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+ShopStock provides a simple web-based solution for managing inventory in one place.
 
-## Expanding the ESLint configuration
+## Target User
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Small business owners
+- Shop owners
+- Store managers
+
+## Main Features
+
+### Dashboard
+
+- View total number of products
+- View total stock quantity
+- View low-stock products
+- View recent products
+
+### Products
+
+- View all products
+- Search products by name
+- Filter products by category
+- Open individual product details
+
+### Product Details
+
+- View product image
+- View product name
+- View category
+- View price
+- View quantity
+- View supplier
+- View description
+- View stock status
+
+### Add Product
+
+- Add a new product
+- Validate required fields
+- Enter product name, category, price, quantity, supplier, image, and description
+- Automatically save the new product
+
+### Inventory
+
+- View product stock quantities
+- Increase stock quantity
+- Decrease stock quantity
+- Identify low-stock products
+
+### Data Persistence
+
+ShopStock uses browser localStorage to keep product data and inventory changes after refreshing the page.
+
+## Routes
+
+| Route           | Description          |
+| --------------- | -------------------- |
+| `/dashboard`    | Dashboard            |
+| `/products`     | Product list         |
+| `/products/:id` | Product details      |
+| `/products/new` | Add new product      |
+| `/inventory`    | Inventory management |
+
+The `/` route also opens the Dashboard.
+
+## Technologies Used
+
+- React
+- Vite
+- JavaScript
+- React Router
+- HTML
+- CSS
+- Browser localStorage
+
+## Project Structure
+
+```text
+src/
+├── components/
+│   ├── Layout.jsx
+│   ├── Navbar.jsx
+│   └── ProductCard.jsx
+│
+├── data/
+│   └── products.js
+│
+├── pages/
+│   ├── Dashboard.jsx
+│   ├── Products.jsx
+│   ├── ProductDetails.jsx
+│   ├── AddProduct.jsx
+│   └── Inventory.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddProduct() {
+export default function AddProduct({ products, setProducts }) {
   const [form, setForm] = useState({
     name: "",
     category: "",
@@ -58,9 +58,20 @@ export default function AddProduct() {
       return;
     }
 
-    setErrors({});
+    const newProduct = {
+      id: Date.now(),
+      name: form.name,
+      category: form.category,
+      price: Number(form.price),
+      quantity: Number(form.quantity),
+      supplier: form.supplier,
+      image:
+        form.image ||
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+      description: form.description,
+    };
 
-    console.log("New Product:", form);
+    setProducts([...products, newProduct]);
 
     alert("Product added successfully!");
 
@@ -73,6 +84,8 @@ export default function AddProduct() {
       image: "",
       description: "",
     });
+
+    setErrors({});
   }
 
   return (

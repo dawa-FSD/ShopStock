@@ -1,8 +1,7 @@
 import { useState } from "react";
-import products from "../data/products";
 import ProductCard from "../components/ProductCard";
 
-export default function Products() {
+export default function Products({ products }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 

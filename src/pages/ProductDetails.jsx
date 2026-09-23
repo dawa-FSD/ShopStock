@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import products from "../data/products";
 
-export default function ProductDetails() {
+export default function ProductDetails({ products }) {
   const { id } = useParams();
 
   const product = products.find((item) => item.id === Number(id));
